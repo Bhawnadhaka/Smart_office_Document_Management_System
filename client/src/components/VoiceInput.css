@@ -1,0 +1,238 @@
+.voice-input-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow);
+  overflow: hidden;
+}
+
+.voice-header {
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voice-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.ai-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.voice-content {
+  padding: 1.25rem;
+}
+
+.voice-controls {
+  margin-bottom: 1rem;
+}
+
+.btn-voice {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn-start {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-start:hover {
+  background: var(--primary-dark);
+  transform: scale(1.02);
+}
+
+.btn-stop {
+  background: var(--danger);
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.listening-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #fef3c7;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  color: #92400e;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.warning-message {
+  padding: 0.75rem;
+  background: #fef3c7;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  color: #92400e;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-left: 4px solid #f59e0b;
+}
+
+.pulse {
+  width: 12px;
+  height: 12px;
+  background: var(--danger);
+  border-radius: 50%;
+  animation: pulseScale 1s infinite;
+}
+
+@keyframes pulseScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+.voice-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+}
+
+.voice-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-process {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn-process:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
+.btn-process:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voice-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.result-section {
+  margin-bottom: 1rem;
+}
+
+.result-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.result-section label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.result-text {
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.result-text.original {
+  background: white;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.result-text.formatted {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.result-actions {
+  margin-top: 1rem;
+}
+
+.btn-copy {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  background: var(--success);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-copy:hover {
+  background: #059669;
+}
+
+.voice-footer {
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-tertiary);
+  border-top: 1px solid var(--border);
+}
+
+.voice-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
