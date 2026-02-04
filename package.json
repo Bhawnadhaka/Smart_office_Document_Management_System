@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev",
-    "build": "cd server && npm ci && cd .. && cd client && npm ci && npx vite build",
+    "build": "cd server && npm install --include=dev && cd ../client && npm install --include=dev && npm run build",
     "start": "cd server && npm start"
   },
   "keywords": ["document-management", "offline", "tiptap", "voice-input"],
