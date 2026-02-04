@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import expressWs from 'express-ws';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { initDatabase } from './database/init.js';
 import documentRoutes from './routes/documents.js';
 import templateRoutes from './routes/templates.js';
@@ -9,6 +11,9 @@ import voiceRoutes from './routes/voice.js';
 import { setupWebSocket } from './websocket/handler.js';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const { app: wsApp } = expressWs(app);
@@ -31,6 +36,17 @@ app.use('/api/voice', voiceRoutes);
 
 // WebSocket Setup
 setupWebSocket(app);
+
+// Serve static files from React app in production
+if (process.env.NODE_ENV === 'production') {
+  const clientBuildPath = path.join(__dirname, '../client/dist');
+  app.use(express.static(clientBuildPath));
+  
+  // Serve index.html for all non-API routes
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
+  });
+}
 
 // Health Check
 app.get('/health', (req, res) => {
